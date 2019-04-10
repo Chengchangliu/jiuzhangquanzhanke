@@ -2,6 +2,7 @@ package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.domain.dto.CourseDto;
 import com.mycompany.myapp.domain.dto.CourseWithTNDto;
+import com.mycompany.myapp.domain.dto.CourseWithSDto;
 import com.mycompany.myapp.service.CourseService;
 import io.swagger.annotations.Api;
 import org.hibernate.validator.constraints.NotBlank;
@@ -39,6 +40,13 @@ public class CourseController {
     @GetMapping(path = "/api/course/findAllCoursesWithTNDto", produces = "application/json")
     public HttpEntity<List<CourseWithTNDto>> findAllCoursesWithTNDto(){
         List<CourseWithTNDto> allCourses = courseService.findAllCoursesDtoWithTeacherNameFromDB();
+
+        return new ResponseEntity<>(allCourses, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/api/course/findAllCoursesWithSDto", produces = "application/json")
+    public HttpEntity<List<CourseWithSDto>> findAllCoursesWithSDto(){
+        List<CourseWithSDto> allCourses = courseService.findAllCoursesDtoWithStudentNameFromDB();
 
         return new ResponseEntity<>(allCourses, HttpStatus.OK);
     }

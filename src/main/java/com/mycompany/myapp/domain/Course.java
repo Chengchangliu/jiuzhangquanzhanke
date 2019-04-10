@@ -35,4 +35,6 @@ public class Course {
 
     @Column(name = "teacher_id", nullable = false, columnDefinition = "bigint")
     private long teacherId;
+
+
 }

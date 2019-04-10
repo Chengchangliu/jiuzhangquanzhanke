@@ -6,7 +6,7 @@ import { LoginModalService, Principal, Account } from 'app/core';
 import { CourseService } from 'app/shared/service/CourseService';
 import { CourseDto } from 'app/shared/model/course-dto.model';
 import { CourseWithTNDto } from 'app/shared/model/courseWithTN-dto.model';
-
+import { CourseWithSDto } from 'app/shared/model/courseWithS-dto.model';
 @Component({
     selector: 'jhi-home',
     templateUrl: './home.component.html',
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     courses: CourseDto[] = [];
 
     coursesWithTN: CourseWithTNDto[] = [];
-
+    courseWithS: CourseWithSDto[] = [];
     ngOnInit() {
         this.principal.identity().then(account => {
             this.account = account;
@@ -71,9 +71,22 @@ export class HomeComponent implements OnInit {
         });
     }
 
-    // registerCourse(courseName) {
-    //
-    // }
+    getAllCoursesWithS() {
+        this.courseService.getCourseInfoWithS().subscribe(curDto => {
+            if (!curDto) {
+                this.coursesWithS = [];
+            } else {
+                this.coursesWithS = curDto;
+            }
+        });
+    }
+
+    registerCourse(courseName) {
+        this.courseService.add(courseName);
+    }
+    deleteCourse(courseName: string) {
+        this.courseService.delete(courseName);
+    }
 
     clearAllCourses() {
         this.courses = [];
