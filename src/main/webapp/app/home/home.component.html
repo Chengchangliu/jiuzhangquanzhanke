@@ -1,29 +1,8 @@
 <div class="row">
     <div class="col-md-12">
-        <h1 class="display-8">欢迎来到九章全栈课程</h1>
+        <h1 class="display-8">Welcome to Cluster System</h1>
 
-        <!--<div [ngSwitch]="isAuthenticated()">-->
-            <!--<div class="alert alert-success" *ngSwitchCase="true">-->
-                <!--<span *ngIf="account"-->
-                   <!--&gt; You are logged in as user "{{account.login}}". </span>-->
-            <!--</div>-->
-
-            <!--<div class="alert alert-warning" *ngSwitchCase="false">-->
-                <!--<span>If you want to </span>-->
-                <!--<a class="alert-link" (click)="login()">sign in</a><span>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>-->
-            <!--</div>-->
-            <!--<div class="alert alert-warning" *ngSwitchCase="false">-->
-                <!--<span>You don't have an account yet?</span>&nbsp;-->
-                <!--<a class="alert-link" routerLink="register">Register a new account</a>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div>-->
-            <!--<div>Course_Name</div>-->
-            <!--<div>Course_Location</div>-->
-            <!--<div>Course_Content</div>-->
-            <!--<div>Teacher_ID</div>-->
-        <!--</div>-->
-        <div *ngIf="isAuthenticated()">
+        <div >
             <hr>
             <span>课程查询/注册功能</span>
             <hr>
@@ -38,7 +17,7 @@
             </div>
         </div>
 
-        <div *ngIf="isAuthenticated()">
+        <div>
             <hr>
             <span>课程查询</span>
             <hr>
@@ -53,6 +32,9 @@
             </div>
         </div>
 
+        <div>
+            <button (click)="addjob()">submit job</button>
+        </div>
         <!--<div *ngIf="isAuthenticated()">-->
             <!--<hr>-->
             <!--<span>注册功能</span>-->
